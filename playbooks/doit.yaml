@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: linux
+  gather_facts: false
 
   tasks:
   - name: show the vg and lv to the world

@@ -1,0 +1,9 @@
+---
+- hosts: all
+
+  tasks:
+  - name: show the vg and lv to the world
+    delegate_to: localhost
+    debug:
+      msg: "vg: {{ disks[item]['vg'] }}, lv: {{ disks[item]['lv'] }}"
+    with_items: "{{ disks.keys() | list }}"

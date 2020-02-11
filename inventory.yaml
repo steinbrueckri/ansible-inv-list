@@ -1,4 +1,5 @@
 all:
+
   vars:
     value: key
     disks:
@@ -10,26 +11,41 @@ all:
         lv: 'disk2-default'
         vg: 'disks'
         size: '1g'
-  children:
-    suse:
-      value: suse
-      disks:
-        disk1:
-          lv: 'disk1-suse'
-          vg: 'disks'
-          size: '1g'
-        disk2:
-          lv: 'disk2-suse'
-          vg: 'disks'
-          size: '1g'
-    centos:
-      value: centos
-      disks:
-        disk1:
-          lv: 'disk1-centos'
-          vg: 'disks'
-          size: '1g'
-        disk2:
-          lv: 'disk2-centos'
-          vg: 'disks'
-          size: '1g'
+linux:
+  hosts:
+    suse2:
+    centos1:
+suse:
+  hosts:
+    suse1:
+      ansible_host: 127.0.0.7
+    suse2:
+      ansible_host: 127.0.0.7
+  vars:
+    value: suse
+    disks:
+      disk1:
+        lv: 'disk1-suse'
+        vg: 'disks'
+        size: '1g'
+      disk2:
+        lv: 'disk2-suse'
+        vg: 'disks'
+        size: '1g'
+centos:
+  hosts:
+    centos1:
+      ansible_host: 127.0.0.7
+    centos2:
+      ansible_host: 127.0.0.7
+  vars:
+    value: centos
+    disks:
+      disk1:
+        lv: 'disk1-centos'
+        vg: 'disks'
+        size: '1g'
+      disk2:
+        lv: 'disk2-centos'
+        vg: 'disks'
+        size: '1g'

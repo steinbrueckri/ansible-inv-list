@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: linux
+  gather_facts: false
 
   tasks:
   - name: show the vg and lv to the world
@@ -7,3 +8,9 @@
     debug:
       msg: "vg: {{ disks[item]['vg'] }}, lv: {{ disks[item]['lv'] }}"
     with_items: "{{ disks.keys() | list }}"
+
+
+
+    # Loop über 2 disks
+    # children linux
+    
